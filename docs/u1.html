@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.57">
+<meta name="generator" content="quarto-1.5.56">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -41,6 +41,9 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -192,10 +195,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#activity-title-1" id="toc-activity-title-1" class="nav-link" data-scroll-target="#activity-title-1">Activity: Title</a></li>
   <li><a href="#activity-key-terms-quiz-ungraded" id="toc-activity-key-terms-quiz-ungraded" class="nav-link" data-scroll-target="#activity-key-terms-quiz-ungraded">Activity: Key Terms Quiz (ungraded)</a></li>
   </ul></li>
-  <li><a href="#unit-summary" id="toc-unit-summary" class="nav-link" data-scroll-target="#unit-summary">Unit Summary</a>
-  <ul>
-  <li><a href="#checking-your-learning" id="toc-checking-your-learning" class="nav-link" data-scroll-target="#checking-your-learning">Checking Your Learning</a></li>
-  </ul></li>
+  <li><a href="#unit-summary" id="toc-unit-summary" class="nav-link" data-scroll-target="#unit-summary">Unit Summary</a></li>
   </ul>
 </nav>
     </div>
@@ -206,6 +206,18 @@ ul.task-list li input[type="checkbox"] {
 
 
 <p>Welcome to [COURSE]</p>
+<div id="fig-Picture1xt2" class="lightbox quarto-float quarto-figure quarto-figure-left anchored" alt="" data-fig-align="left">
+<figure class="quarto-float quarto-float-fig figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-Picture1xt2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1.1
+</figcaption>
+<div aria-describedby="fig-Picture1xt2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="assets/u1/Picture1-t2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1.1: "><img src="assets/u1/Picture1-t2.png" title="Image of &quot;Got Ethics?&quot; Written on a chalkboard" class="img-fluid quarto-figure quarto-figure-left figure-img" alt=""></a>
+</div>
+</figure>
+</div>
+<p>Watch: <a href="https://www.youtube.com/watch?v=1aVGf4G72IA" target="_blank">Watch: <em>We need a “moral operating system” - Damon Horowitz</em></a> <!-- Auto title, auto embed--></p>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/1aVGf4G72IA" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 <section id="topics" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="topics">Topics</h2>
 <p>This unit is divided into the following topics: 1. 2. 3.</p>
@@ -352,15 +364,13 @@ Learning Activity
 <h2 class="unnumbered anchored" data-anchor-id="unit-summary">Unit Summary</h2>
 <p>In this first unit, you have had the opportunity to learn about…</p>
 <p><em>(add content)</em></p>
-<section id="checking-your-learning" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="checking-your-learning">Checking Your Learning</h3>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Learning Activity
+Checking Your Learning
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -376,7 +386,6 @@ Learning Activity
 </div>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -813,6 +822,38 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"descPosition":"top","closeEffect":"zoom","openEffect":"zoom","selector":".lightbox","loop":false});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 
